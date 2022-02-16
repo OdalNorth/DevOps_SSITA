@@ -4,5 +4,8 @@ regexp1="^(Кувіл)([аіиу]|ою)\s*$"
 
 while IFS= read -r line
     do
-        echo $line | grep -E $regexp1
+        if [[ $line =~ $regexp1 ]]
+        then 
+            echo $line
+        fi
 done < $1

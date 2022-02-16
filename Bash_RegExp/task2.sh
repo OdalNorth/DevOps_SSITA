@@ -4,5 +4,8 @@ regexp2="^(Іван)([ауе]|к[оу])?\s*$|^(Ван)([яіо]|ею|ьок|ьк
 
 while IFS= read -r line
     do
-        echo $line | grep -E $regexp2
+        if [[ $line =~ $regexp2 ]]
+        then 
+            echo $line
+        fi
 done < $1
